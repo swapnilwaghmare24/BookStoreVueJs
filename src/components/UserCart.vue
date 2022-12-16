@@ -107,7 +107,7 @@ import { sharedService } from '@/service/AppSharedService'
 import BookCartService from '@/service/BookCartService'
 import BookStoreService from '../service/BookStoreService'
 import UserCartItem from './UserCartItem.vue'
-import BookOrderService from '@/service/BookOrderService'
+import BookOrderService from '@/service/BookOrderService' 
 import router from '@/router'
 export default {
   name: 'UserCart',
@@ -142,8 +142,8 @@ export default {
           response => {
             alert('Order has been placed successfully. Status: ' + response.status)
             this.GetCartItemsForUser()
-            const orderId = response.data.orderId
-           // router.push({ name: 'OrderAck', params: { orderId: orderId } })
+            const orderId = response.data.data.orderId
+           router.push({ name: 'OrderAck', params: { orderId: orderId } })
           })
         .catch(error => {
           alert('Error inserting order ' + error.message)

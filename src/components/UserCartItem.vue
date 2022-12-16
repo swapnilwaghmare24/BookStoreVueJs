@@ -6,7 +6,7 @@
         <div class="cartdata">
             <h3>{{bookData.bookName}}</h3>
             <v-text style="margin-top: 5px">{{bookData.autherName}}</v-text>
-            <v-text class="mdi mdi-currency-rupee" style="font-size: 18px; margin-top: 5px;">{{bookData.price }}</v-text>
+            <v-text class="mdi mdi-currency-rupee" style="font-size: 18px; margin-top: 5px;">{{bookData.price*this.localQuantity }}</v-text>
             <div class="cartAction">
                 <v-btn icon elevation="1">
                     <v-icon dark @click="DecreaseQuantity()"> mdi-minus</v-icon>

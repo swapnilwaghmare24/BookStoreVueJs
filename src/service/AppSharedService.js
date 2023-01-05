@@ -5,6 +5,9 @@ export const sharedService = reactive({
   Key_CartItemCount: 'CartItemCount',
   Key_IsSignedIn: 'IsSignedIn',
   Key_AccessToken: 'AccessToken',
+  HideSearchBox: false,
+  HideCartBtn: false,
+  HideAppBar: false,
   SetSignedIn (accessToken) {
     localStorage.setItem(this.Key_IsSignedIn, 'true')
     localStorage.setItem(this.Key_AccessToken, accessToken)

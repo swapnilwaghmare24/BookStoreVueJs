@@ -2,15 +2,16 @@
 <v-app>
   <v-app-bar app color="cyan">
     
-    <!--<img src="./assets/bookstoreLogo.png" @click="GotoHomePage" style="cursor:pointer" class="book-store-logo"/>-->
+  
     <v-toolbar-title v-text="appTitle" @click="GotoHomePage" style="cursor:pointer"></v-toolbar-title>
     <v-spacer/>
-     <!--<div class="searchBox">
-      <v-text-field label="Search here" solo >
+    <div class="searchBox" v-show="!sharedService.HideSearchBox">
+      <v-text-field label="Search here" solo v-model="sharedService.searchBoxText">
         <v-icon slot="append" color="red lighten-3">mdi-magnify</v-icon>
       </v-text-field>
-    </div>-->
+    </div>
     <v-spacer/>
+    
     <v-btn depressed right color="cyan" @click="CartBtnClicked()">
       <v-icon right dark>mdi-cart-outline</v-icon>
       <span style="margin-left:2px">{{sharedService.cartItemCount}}</span>
@@ -24,6 +25,9 @@
     <v-btn v-show="isSignedIn" @click="SignOutBtnClicked()" depressed right color="cyan">Sign Out
      <!-- <v-icon right dark>mdi-arrow-right-drop-circle-outline</v-icon>-->
     </v-btn>
+   
+    <v-btn name="orders"  @click="ordersBtnClicked()" depressed right color="cyan"> orders </v-btn>
+    <v-spacer/>
   </v-app-bar>
   <v-main>
     <v-container fluid>
@@ -44,9 +48,14 @@ export default {
 
   data: () => ({
     appTitle: 'Bookstore',
-   // appFooter: '',
     isSignedIn: sharedService.IsSignedIn(),
-    sharedService: sharedService
+    sharedService: sharedService,
+    items: [
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me 2' }
+    ]
   }),
   methods:
   {
@@ -65,6 +74,10 @@ export default {
     SignOutBtnClicked () {
       sharedService.SetSignedOut()
       location.href = '/'
+    },
+    ordersBtnClicked()
+    {
+      router.push({ name: 'myorders' })
     }
   },
   created () {

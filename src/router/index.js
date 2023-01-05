@@ -8,6 +8,10 @@ import BookCardList from '../components/BookCardList'
 import UserCart from '../components/UserCart.vue'
 import { sharedService } from '../service/AppSharedService'
 import requiresAuth from './middleware/requiresAuth'
+import myorders from '../components/MyOrders.vue'
+import cancelorders from '../components/CancelOrders.vue'
+import processorders from '../components/ProcessOrder.vue'
+import completeorders from '../components/CompleteOrder.vue'
 
 
 Vue.use(VueRouter)
@@ -27,6 +31,29 @@ const routes = [
     path: '/signup',
     name: 'SignUp',
     component: SignUp
+  },
+
+  {
+    path: '/myorders',
+    name: 'myorders',
+    component: myorders
+  },
+  {
+    path: '/cancelorders',
+    name: 'cancelorders',
+    component: cancelorders
+  },
+
+  {
+    path: '/processorders',
+    name: 'processorders',
+    component: processorders
+  },
+
+  {
+    path: '/completeorders',
+    name: 'completeorders',
+    component: completeorders
   },
   {
     path: '/bookCard',

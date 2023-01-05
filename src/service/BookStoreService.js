@@ -7,4 +7,8 @@ export default class BookStoreService {
   getById (id) {
     return axios.get('http://localhost:8080/book/get/' + id)
   }
+
+  getByName (name) {
+    return axios.get(`http://localhost:8080/book/bookname/${name}` )
+  }
 }
